@@ -8,20 +8,20 @@
 
 laura_person = User.create!(
   email: "laura@lewagon.com",
-  nickname: "LauraPerson",
-  password: "123456"
+  nickname: "Laura Person",
+  password: "123456",
 )
 
 mathieu_trancoso = User.create!(
   email: "mathieu@lewagon.com",
-  nickname: "MathieuTrancoso",
-  password: "123456"
+  nickname: "Mathieu Trancoso",
+  password: "123456",
 )
 
 jeremy_barbedienne = User.create!(
   email: "jeremy@lewagon.com",
-  nickname: "JeremyBarbedienne",
-  password: "123456"
+  nickname: "Jeremy Barbedienne",
+  password: "123456",
 )
 
 post_1 = Post.create!(

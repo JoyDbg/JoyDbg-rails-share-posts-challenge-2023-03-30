@@ -1,2 +1,36 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container-trends">
+  <div class="post-title-show">
+    <h2><%= @post.title %></h2>
+    <p>by <%= @post.user.nickname %></p>
+  </div>
+  <div class="post-title-content pb-5">
+    <p><%= @post.content %></p>
+    <p>Link to what inspired me : <%= link_to "Here !", @post.url %></p>
+    <p>published on <%= @post.created_at.strftime("%A - %B %d, %Y") %></p>
+  </div>
+
+  
+
+  <div class="grey-card">
+    <% @post.comments.each do |comment| %>
+      <div class="comment-white-card">
+        <p><strong><%= comment.user.nickname %></strong></p>
+        <p><%= comment.content %></p>
+      </div>
+    <% end %>
+
+    <div class="title-comment pt-3 pb-3">
+      <h3>Share your thought with us !</h3>
+    </div>
+
+    <div class="white-card">
+      <p><strong><%= current_user.nickname %></strong></p>
+      <%= simple_form_for [ @post, @post.comments.build ] do |f| %>
+        <%= f.input :content, label: 'Comment' %>
+        <div class="d-grid gap-2 col-6 mx-auto p-5">
+          <%= f.submit "Share", class: "btn-trends" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

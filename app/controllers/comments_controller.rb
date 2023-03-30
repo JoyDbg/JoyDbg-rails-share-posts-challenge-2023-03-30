@@ -6,9 +6,13 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.post = @Post
-    @comment.save
-    redirect_to posts_path(@post)
+    @comment.post = @post
+    @comment.user = current_user
+    if @comment.save
+      redirect_to post_path(@post), notice: "Thanks for your comment !"
+    else
+      render "posts/show", status: :unprocessable_entity
+    end
   end
 
   private

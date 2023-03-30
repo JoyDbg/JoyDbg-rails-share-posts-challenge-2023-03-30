@@ -1,2 +1,13 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="container-trends">
+  <% @posts.each do |post| %>
+    <%= link_to post_path(post) do %>
+      <div class="post-container">
+        <h2><%= post.title %></h2>
+        <p>by <%= post.user.nickname %></p>
+        <p><%= post.content.first(300) %></p>
+        <p><%= link_to "Look at this inpsiration !", post.url %></p>
+        <p>published on <%= post.created_at.strftime("%A - %B %d, %Y") %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

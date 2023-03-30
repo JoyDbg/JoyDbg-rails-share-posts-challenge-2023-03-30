@@ -1,2 +1,19 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div class="container-trends">
+  <div class="d-flex justify-content-center pb-3">
+    <h2>Wanna share an article about your last inspiration ?</h2>
+  </div>
+  <div class="grey-card">
+    <div class="white-card">
+      <p>by <strong><%= current_user.nickname %></strong></p>
+      <p>on <%= Date.today.strftime("%A - %B %d, %Y") %></p>
+      <%= simple_form_for @post do |f| %>
+        <%= f.input :title %>
+        <%= f.input :content, label: "Content of the article", :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'} %>
+        <%= f.input :url %>
+        <div class="d-grid gap-2 col-6 mx-auto p-5">
+          <%= f.submit "Share", class: "btn-trends" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
