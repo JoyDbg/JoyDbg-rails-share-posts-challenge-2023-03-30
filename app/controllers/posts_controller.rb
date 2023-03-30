@@ -5,6 +5,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments
   end
 
   def new
@@ -13,8 +15,12 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    redirect_to posts_path
+    @post.user = current_user
+    if @post.save
+      redirect_to post_path(@post), notice: "Thanks for your post!"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -26,6 +32,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :url, :user_id)
+    params.require(:post).permit(:title, :content, :url)
   end
 end

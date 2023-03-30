@@ -1,2 +1,17 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div class="container-trends">
+  <div class="d-flex justify-content-center pb-3">
+    <h2>Wanna share your last inspiration ?</h2>
+  </div>
+  <div class="grey-card">
+    <div class="white-card">
+      <%= simple_form_for @post do |f| %>
+        <%= f.input :title %>
+        <%= f.text_area :content, class: "content-field" %>
+        <%= f.input :url %>
+        <div class="d-grid gap-2 col-6 mx-auto p-5">
+          <%= f.submit "Share", class: "btn-trends" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
