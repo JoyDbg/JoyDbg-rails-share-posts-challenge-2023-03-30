@@ -8,7 +8,6 @@
         </div>
         <p>by <strong><%= post.user.nickname %></strong></p>
         <p><%= post.content.first(300) %></p>
-        <p><%= link_to "Look at this inpsiration !", post.url %></p>
         <p><em>published on <%= post.created_at.strftime("%A - %B %d, %Y") %></em></p>
       </div>
     <% end %>

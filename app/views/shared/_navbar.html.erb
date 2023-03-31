@@ -1,6 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "Trendsinterior", root_path, class: "nav-link" %>
+    <div class="logo-trends-interior">
+      <%= link_to "TrendsInterior", root_path, class: "nav-link" %>
+    </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,7 +14,7 @@
           <li class="nav-item active">
             <%= link_to "Articles", posts_path, class: "nav-link" %>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <%= link_to "Share an Inspiration", new_post_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
