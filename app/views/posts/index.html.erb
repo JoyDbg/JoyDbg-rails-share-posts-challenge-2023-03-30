@@ -3,10 +3,13 @@
     <%= link_to post_path(post) do %>
       <div class="post-container">
         <h2><%= post.title %></h2>
-        <p>by <%= post.user.nickname %></p>
+        <div class="post-picture">
+
+        </div>
+        <p>by <strong><%= post.user.nickname %></strong></p>
         <p><%= post.content.first(300) %></p>
         <p><%= link_to "Look at this inpsiration !", post.url %></p>
-        <p>published on <%= post.created_at.strftime("%A - %B %d, %Y") %></p>
+        <p><em>published on <%= post.created_at.strftime("%A - %B %d, %Y") %></em></p>
       </div>
     <% end %>
   <% end %>
