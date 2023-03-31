@@ -3,19 +3,22 @@
     <h2><%= @post.title %></h2>
     <p>by <%= @post.user.nickname %></p>
   </div>
+  <div class="post-picture">
+  </div>
   <div class="post-title-content pb-5">
     <p><%= @post.content %></p>
-    <p>Link to what inspired me : <%= link_to "Here !", @post.url %></p>
-    <p>published on <%= @post.created_at.strftime("%A - %B %d, %Y") %></p>
+    <p><strong>Link to what inspired me : <%= link_to "Here !", @post.url %></strong></p>
+    <p><em>published on <%= @post.created_at.strftime("%A - %B %d, %Y") %></em></p>
   </div>
 
-  
+
 
   <div class="grey-card">
     <% @post.comments.each do |comment| %>
       <div class="comment-white-card">
         <p><strong><%= comment.user.nickname %></strong></p>
         <p><%= comment.content %></p>
+        <p><em><%= comment.created_at.strftime("%A - %B %d, %Y") %></em></p>
       </div>
     <% end %>
 
@@ -26,7 +29,7 @@
     <div class="white-card">
       <p><strong><%= current_user.nickname %></strong></p>
       <%= simple_form_for [ @post, @post.comments.build ] do |f| %>
-        <%= f.input :content, label: 'Comment' %>
+        <%= f.input :content, label: "Comment", :as => :text, :input_html => { :rows => 3 , :style => 'width: 100%'} %>
         <div class="d-grid gap-2 col-6 mx-auto p-5">
           <%= f.submit "Share", class: "btn-trends" %>
         </div>

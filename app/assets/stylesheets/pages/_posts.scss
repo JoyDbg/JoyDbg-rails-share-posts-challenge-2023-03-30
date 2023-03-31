@@ -7,6 +7,7 @@
   padding: 40px;
   border-radius: 5px;
   margin-top: 10px;
+  transition: all .2s ease-in-out;
   h2 {
     font-size: 24px;
     font-weight: bold;
@@ -15,11 +16,25 @@
   p {
     font-size: 14px;
   }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.post-container:hover {
+  transform: scale(1.1);
 }
 
 .grey-card {
   width: 100%;
-  background-color: #F4F4F4;
+  background-color: #a1bc8d;
   border-radius: 5px;
   padding: 40px;
   .white-card {
@@ -60,4 +75,13 @@
   appearance: none;
   border-radius: 2px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.post-picture {
+  height: 30vh;
+  width: 100%;
+  background-color: orange;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  background-image: url('https://images.adsttc.com/media/images/5f2c/8545/b357/65db/c000/008c/large_jpg/FEAT_ID.jpg?1596753213');
 }
